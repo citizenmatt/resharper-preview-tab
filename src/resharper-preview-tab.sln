@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "resharper-preview-tab", "resharper-preview-tab\resharper-preview-tab.csproj", "{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
