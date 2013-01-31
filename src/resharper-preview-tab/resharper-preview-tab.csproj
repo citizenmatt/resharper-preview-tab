@@ -8,8 +8,8 @@
     <ProjectGuid>{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>resharper_preview_tab</RootNamespace>
-    <AssemblyName>resharper-preview-tab</AssemblyName>
+    <RootNamespace>CitizenMatt.ReSharper.PreviewTab</RootNamespace>
+    <AssemblyName>CitizenMatt.ReSharper.PreviewTab</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

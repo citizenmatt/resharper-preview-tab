@@ -10,7 +10,7 @@ using JetBrains.VsIntegration.DocumentModel;
 using JetBrains.VsIntegration.ProjectModel;
 using Microsoft.VisualStudio.Shell.Interop;
 
-namespace resharper_preview_tab
+namespace CitizenMatt.ReSharper.PreviewTab
 {
     [SolutionComponent]
     public class PreviewTabEditorManager : VSEditorManager11 
