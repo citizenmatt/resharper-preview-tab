@@ -18,7 +18,7 @@ Fortunately, this plugin adds the support back in. Simply install it and now, wh
 
 If you wish to just install a copy of the plugins without building yourself:
 
-- Download the latest zip file: [resharper-preview-tab.1.0.zip](http://download.jetbrains.com/resharper/plugins/resharper-preview-tab.1.0.zip)
+- Download the latest zip file: [resharper-preview-tab.1.0.zip](https://github.com/citizenmatt/resharper-preview-tab/wiki/resharper-preview-tab.1.0.zip)
 - Extract everything
 - Run Install-PreviewTab.7.1.bat file
 
@@ -33,6 +33,8 @@ I think whether this is an issue depends on if you have the ReSharper tool windo
 The second argument was that navigating to a type or symbol implied you were going to edit it, so it should open in a normal editor tab. I don't buy this at all - if you're going to edit a file in the preview tab, just start typing, and the file is seamlessly moved to a normal tab. It doesn't matter whether it was originally open in the preview tab or a normal tab.
 
 What I don't like about this change is that it affects everybody. In 7.0, if you didn't like the preview tab behaviour, you could disable the preview tab in Visual Studio's settings, and ReSharper would open everything in normal editor tabs, and you get the behaviour you want. But in 7.1, I can't change the behaviour, and the preview tab feature is effectively removed.
+
+See [this YouTrack issue for more details](http://youtrack.jetbrains.com/issue/RSRP-292069).
 
 ## Building ##
 
