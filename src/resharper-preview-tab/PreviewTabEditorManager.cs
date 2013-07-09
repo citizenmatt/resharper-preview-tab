@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2012 Matt Ellis
+ * Copyright 2012 - 2013 Matt Ellis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ using JetBrains.IDE;
 using JetBrains.ProjectModel;
 using JetBrains.TextControl;
 using JetBrains.UI.WindowManagement;
-using JetBrains.VsIntegration.DevEleven;
 using JetBrains.VsIntegration.DocumentModel;
 using JetBrains.VsIntegration.ProjectModel;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -29,7 +28,7 @@ using Microsoft.VisualStudio.Shell.Interop;
 namespace CitizenMatt.ReSharper.PreviewTab
 {
     [SolutionComponent]
-    public class PreviewTabEditorManager : VSEditorManager11 
+    public partial class PreviewTabEditorManager
     {
         private readonly DocumentTransactionManager documentTransactionManager;
 

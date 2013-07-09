@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "resharper-preview-tab", "resharper-preview-tab\resharper-preview-tab.csproj", "{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "resharper-preview-tab.7.1", "resharper-preview-tab\resharper-preview-tab.7.1.csproj", "{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "resharper-preview-tab.8.0", "resharper-preview-tab\resharper-preview-tab.8.0.csproj", "{B55A7555-5972-4587-80E4-841F879170C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{330D00D8-E894-40C3-B3A3-DA8F9C3A7050}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55A7555-5972-4587-80E4-841F879170C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55A7555-5972-4587-80E4-841F879170C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55A7555-5972-4587-80E4-841F879170C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55A7555-5972-4587-80E4-841F879170C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

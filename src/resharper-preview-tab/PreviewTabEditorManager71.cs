@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2012 - 2013 Matt Ellis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,22 +14,11 @@
  * limitations under the License.
  */
 
-using System;
-using System.Xml.Serialization;
-using JetBrains.UI.Updates;
-using JetBrains.VSIntegration.Updates;
+using JetBrains.VsIntegration.DevEleven;
 
-namespace CitizenMatt.ReSharper.PreviewTab.Updates
+namespace CitizenMatt.ReSharper.PreviewTab
 {
-    [XmlType]
-    [XmlRoot("PluginLocalInfo")]
-    [Serializable]
-    public class PluginLocalEnvironmentInfo
-    {
-        [XmlElement]
-        public UpdateLocalEnvironmentInfoVs LocalEnvironment = new UpdateLocalEnvironmentInfoVs();
-
-        [XmlElement]
-        public UpdateLocalEnvironmentInfo.VersionSubInfo PluginVersion = new UpdateLocalEnvironmentInfo.VersionSubInfo();
-    }
+  public partial class PreviewTabEditorManager : VSEditorManager11 
+  {
+  }
 }

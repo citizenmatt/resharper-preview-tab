@@ -1,5 +1,5 @@
 /*
- * Copyright 2012 Matt Ellis
+ * Copyright 2012 - 2013 Matt Ellis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,7 @@ using JetBrains.Application.PluginSupport;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.*")]
 
 // The following information is displayed by ReSharper in the Plugins dialog
 [assembly: PluginTitle("Preview Tab Behaviour")]
