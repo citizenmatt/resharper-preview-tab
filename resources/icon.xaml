@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Background="DarkGray" Width="160" Height="200" HorizontalContentAlignment="Center">
+  <Grid Height="128" Width="128" Background="#68217A"> 
+    <Grid.RowDefinitions> 
+      <RowDefinition Height="*" />
+      <RowDefinition Height="85" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid Background="#EFEFF2" />
+    
+    <!-- Pinched from the XAML in the docwell powertools -->
+    <StackPanel Grid.Row="1"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Border Background="#9B4F96" Width="60" Height="60" Margin="4,0,0,0">
+        <Path x:Name="PromoteButtonPath" Width="40" Height="40" Stretch="Uniform"
+                          Data="F1 M 9.022,6.667 L 9.022,2.665 C 9.022,2.389 8.798,2.165 8.522,2.165 L 2.647,2.165 C 2.371,2.165 2.147,2.389 2.147,2.665 L 2.147,6.667 1.022,6.667 1.022,7.646 10.022,7.646 10.022,6.667 9.022,6.667 M 3.838,1.897 L 2.838,1.897 2.838,0 3.838,0 3.838,1.897 M 2.289,1.604 L 1.582,2.312 0,0.729 0.707,0.022 2.289,1.604 M 1.879,2.856 L 1.879,3.856 0.043,3.856 0.043,2.856 1.879,2.856 Z"
+                          Fill="White"/>
+      </Border>
+      <Border Width="60" Height="60" Padding="0,0,0,0" Margin="0,0,0,0">
+        <Path x:Name="CloseButton" Width="40" Height="40" Stretch="Uniform"
+              Data="F1 M 0,0 L 2,0 5,3 8,0 10,0 6,4 10,8 8,8 5,5 2,8 0,8 4,4 0,0 Z"
+              Fill="White" />
+        </Border>
+    </StackPanel>
+    <Grid Grid.Row="2" Background="#EFEFF2" />
+  </Grid>
+</Window>
