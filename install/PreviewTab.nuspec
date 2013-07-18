@@ -3,7 +3,7 @@
   <metadata>
     <id>PreviewTab</id>
     <title>Preview Tab Behaviour</title>
-    <version>1.0.0-EAP-20130709</version>
+    <version>1.0.0</version>
     <authors>Matt Ellis</authors>
     <owners>Matt Ellis</owners>
     <description>Open files in Visual Studio's preview tab</description>

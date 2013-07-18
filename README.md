@@ -1,57 +1,40 @@
 # resharper-preview-tab
 
-ReSharper 7.0 added support for Visual Studio 2012's preview tab. ReSharper 7.1 took it away. This plugin brings it all back.
+A ReSharper plugin to open files in Visual Studio 2012 + 2013's preview tab when navigating in ReSharper. For ReSharper 7.1 and 8.0.
 
 ## What does it do? ##
 
-Visual Studio 2012's preview tab is a reusable editor tab. Single-clicking files in solution explorer open in the preview tab, replacing what was already there. Editing the file automatically promotes it to a normal editor tab, keeping the file open.
+Visual Studio 2012 introduced the preview tab - a reusable editor tab. Single-clicking a file in solution explorer opens the file in the preview tab, replacing what was already there. Editing the file automatically and seamlessly promotes it to a normal editor tab, keeping the file open.
 
-This is a very useful feature for browsing code, since you can navigate through lots of files without cluttering your currently open set, allowing you to concentrate on the code you're editing, rather than getting lost in a sea of unrelated files.
+This is a very useful feature for browsing code, since you can navigate through lots of files without cluttering your currently open set, allowing you to concentrate on the code you're editing, rather than getting lost in a sea of unrelated files, before finally declaring editor tab bankruptcy.
 
-ReSharper 7.0 supported the preview tab. All navigation (ctrl-click, go to type/file/symbol, find usages, etc) would open the file in the preview tab. Perfect.
+This plugin changes ReSharper's navigation (ctrl-click, go to type/symbol/file, find usages, etc.) to open files in the preview tab. Since ReSharper makes it so easy to navigate to lots of files, this greatly reduces the amount of unnecessary open windows in your Visual Studio.
 
-ReSharper 7.1 removed the support. For various reasons (see below if you're interested). The upshot is that ReSharper 7.1 no longer uses the preview tab. Some (i.e. me) view this as a backwards step.
-
-Fortunately, this plugin adds the support back in. Simply install it and now, whenever ReSharper needs to open a file, it will open it in the preview tab. So all navigation again goes straight to the preview tab. Happy days.
+Since this reduces the number of open windows in your Visual Studio session, it does make it harder to ctrl-tab to a recently opened file. Instead, you need to use Visual Studio's "navigate back" and "navigate forward" shortcuts (ctrl+'-' and shift+ctrl+'-') or ReSharper's "recent files" feature (ctrl+'E' for IntelliJ users and ctrl+',') to navigate to files previously opened in the preview tab. It's also useful to remember the ctrl+alt+home keyboard shortcut - this promotes the preview tab to a full editor tab without editing the file. You can also click the little tab icon in the preview tab to do the same. 
 
 ## How do I get it? ##
 
-If you wish to just install a copy of the plugins without building yourself:
+For ReSharper 8.0, simply install from the Extension Manager, available from the ReSharper menu.
+
+For ReSharper 7.1:
 
 - Download the latest zip file: [resharper-preview-tab.1.0.zip](https://github.com/citizenmatt/resharper-preview-tab/wiki/resharper-preview-tab.1.0.zip)
 - Extract everything
 - Run Install-PreviewTab.7.1.bat file
 
-## Why was support removed? ##
+### Building ###
 
-Good question. Not everyone liked the preview tab. There were two main arugments.
+To build the source, you need the [ReSharper 7.1 and 8.0 SDKs](http://www.jetbrains.com/resharper/download/index.html) installed. Then just open the src\resharper-preview-tab.sln file and build.
 
-First, it was inconsistent with Visual Studio, and therefore confusing. A single click from solution explorer opened the file in the preview tab, and a double click opened the file normally. In the ReShaprer tool windows, a single click displayed a preview in the preview pane of the tool window, and a double click opened the file in the preview tab. 
+### Version ###
 
-I think whether this is an issue depends on if you have the ReSharper tool window docked, or floating as a document window. If it's docked, like solution explorer, then opening in the preview tab when single-clicking makes sense. As a document window, it doesn't, because single-clicking would either a) open the preview tab in the background, which isn't much help, or b) immediately swap focus to the preview tab, which would be massively annoying. Single-clicking can display the code in a preview pane, but that has a different purpose to the preview tab - it displays just the code under focus, and doesn't allow editing, refactoring or navigation.
+The current version is 1.0. It works with Visual Studio 2012 and 2013, and ReSharper 8.0 and 7.1.1 and later. See the [ReleaseNotes wiki page](https://github.com/citizenmatt/resharper-preview-tab/wiki/Release-Notes) for more details.
 
-The second argument was that navigating to a type or symbol implied you were going to edit it, so it should open in a normal editor tab. I don't buy this at all - if you're going to edit a file in the preview tab, just start typing, and the file is seamlessly moved to a normal tab. It doesn't matter whether it was originally open in the preview tab or a normal tab.
-
-What I don't like about this change is that it affects everybody. In 7.0, if you didn't like the preview tab behaviour, you could disable the preview tab in Visual Studio's settings, and ReSharper would open everything in normal editor tabs, and you get the behaviour you want. But in 7.1, I can't change the behaviour, and the preview tab feature is effectively removed.
-
-See [this YouTrack issue for more details](http://youtrack.jetbrains.com/issue/RSRP-292069).
-
-## Building ##
-
-To build the source, you need the [ReSharper 7.1 SDK](http://www.jetbrains.com/resharper/download/index.html) installed. Then just open the src\resharper-preview-tab.sln file and build.
-
-## Version
-
-The current version is 1.0. It only works with Visual Studio 2012 and ReSharper 7.1.1. See the [ReleaseNotes wiki page](https://github.com/citizenmatt/resharper-nuget/wiki/Release-Notes) for more details.
-
-## Contributing ##
+### Contributing ###
 
 Feel free to [raise issues on GitHub](https://github.com/citizenmatt/resharper-preview-tab/issues), or [fork the project](http://help.github.com/fork-a-repo/) and [send a pull request](http://help.github.com/send-pull-requests/).
 
-## Roadmap
+### Roadmap ###
 
 Please see the [Issues tab on the GitHub page](https://github.com/citizenmatt/resharper-preview-tab/issues).
-
-
-
 
