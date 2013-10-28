@@ -36,6 +36,8 @@
 _ReSharper*
 _dotCover*
 
+packages
+
 # Others
 [Bb]in
 [Oo]bj

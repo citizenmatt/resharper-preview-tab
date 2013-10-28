@@ -3,11 +3,11 @@
   <metadata>
     <id>PreviewTab</id>
     <title>Preview Tab Behaviour</title>
-    <version>1.1.0</version>
+    <version>1.1.1-EAP-20131028</version>
     <authors>Matt Ellis</authors>
     <owners>Matt Ellis</owners>
     <description>Open files in Visual Studio's preview tab</description>
-    <releaseNotes>Compatibility with ReSharper 8's multi-file templates</releaseNotes>
+    <releaseNotes>Support for ReSharper 8.1 EAP</releaseNotes>
     <projectUrl>https://github.com/citizenmatt/resharper-preview-tab</projectUrl>
     <licenseUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/license.txt</licenseUrl>
     <iconUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/icon.png</iconUrl>
@@ -19,9 +19,16 @@
     <tags>resharper preview previewtab editor visualstudio</tags>
   </metadata>
   <files>
+    <!-- ReSharper 8.0 -->
     <file src="..\src\resharper-preview-tab\bin\Release\CitizenMatt.ReSharper.PreviewTab.8.0.dll"
           target="ReSharper\v8.0\vs11.0\plugins" />
     <file src="..\src\resharper-preview-tab\bin\Release\CitizenMatt.ReSharper.PreviewTab.8.0.dll"
           target="ReSharper\v8.0\vs12.0\plugins" />
+
+    <!-- ReSharper 8.1 -->
+    <file src="..\src\resharper-preview-tab\bin\Release\CitizenMatt.ReSharper.PreviewTab.8.1.dll"
+          target="ReSharper\v8.1\vs11.0\plugins" />
+    <file src="..\src\resharper-preview-tab\bin\Release\CitizenMatt.ReSharper.PreviewTab.8.1.dll"
+          target="ReSharper\v8.1\vs12.0\plugins" />
   </files>
 </package>

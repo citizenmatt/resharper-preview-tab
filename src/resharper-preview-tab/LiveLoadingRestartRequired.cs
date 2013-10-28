@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Application;
+using JetBrains.Application.Components;
 using JetBrains.Application.Extensions;
+using JetBrains.DataFlow;
 using JetBrains.IDE;
 using JetBrains.ProjectModel;
 using JetBrains.Util;
+using Lifetimes = JetBrains.DataFlow.Lifetimes;
 
 namespace CitizenMatt.ReSharper.PreviewTab
 {
@@ -51,7 +53,29 @@ namespace CitizenMatt.ReSharper.PreviewTab
         private bool NeedsRestart()
         {
             var solution = solutionsManager.Solution;
-            return solution != null && solution.GetComponents<EditorManager>().Count() > 1;
+            if (solution != null)
+            {
+                // Annoyingly, the simple solution.GetComponents<EditorManager>().Count() > 1
+                // causes issues when using a checked build (e.g. EAP builds). Retrieving a
+                // component asserts the same cardinality as the first time it was fetched.
+                // In other words, the first time you call GetComponent or GetComponents you
+                // set the cardinality of that type to be single or multiple, respectively.
+                // Checked builds assert that you call it the same way on subsequent calls,
+                // so you don't mistakenly try to get many when there's only supposed to be
+                // one, and more importantly, vice versa. The assert (VerifyCardinality) is
+                // disabled in production builds (thanks to [Conditional("JET_MODE_ASSERT")])
+                // but it would be nice to have a safe GetAllComponents that wouldn't assert
+                // and just return 1 or more components.
+                try
+                {
+                    solution.GetComponent<EditorManager>();
+                }
+                catch (Exception e)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
