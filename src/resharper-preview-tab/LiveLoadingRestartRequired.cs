@@ -68,6 +68,7 @@ namespace CitizenMatt.ReSharper.PreviewTab
                 // and just return 1 or more components.
                 try
                 {
+                    // TODO: It looks like you can use GetComponent<IEnumerable<EditorManager>>().Count() > 1
                     solution.GetComponent<EditorManager>();
                 }
                 catch (Exception e)

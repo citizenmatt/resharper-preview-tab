@@ -3,18 +3,18 @@
   <metadata>
     <id>PreviewTab</id>
     <title>Preview Tab Behaviour</title>
-    <version>1.1.1-EAP-20131028</version>
+    <version>1.1.1</version>
     <authors>Matt Ellis</authors>
     <owners>Matt Ellis</owners>
     <description>Open files in Visual Studio's preview tab</description>
-    <releaseNotes>Support for ReSharper 8.1 EAP</releaseNotes>
+    <releaseNotes>Support for ReSharper 8.1</releaseNotes>
     <projectUrl>https://github.com/citizenmatt/resharper-preview-tab</projectUrl>
     <licenseUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/license.txt</licenseUrl>
     <iconUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/icon.png</iconUrl>
     <copyright>Copyright 2013 Matt Ellis</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-      <dependency id="ReSharper" version="8.0" />
+      <dependency id="ReSharper" version="[8.0,8.2)" />
     </dependencies>
     <tags>resharper preview previewtab editor visualstudio</tags>
   </metadata>
