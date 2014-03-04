@@ -25,7 +25,7 @@ using JetBrains.Application.PluginSupport;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Matt Ellis")]
 [assembly: AssemblyProduct("resharper-preview-tab")]
-[assembly: AssemblyCopyright("Copyright © Matt Ellis, 2013")]
+[assembly: AssemblyCopyright("Copyright © Matt Ellis, 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

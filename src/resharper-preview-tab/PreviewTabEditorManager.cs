@@ -112,7 +112,7 @@ namespace CitizenMatt.ReSharper.PreviewTab
         private void DisablePreviewTabUntilIdle()
         {
             doEnablePreviewTab = () => { };
-            threading.Dispatcher.BeginInvoke("reset preview tab", () => doEnablePreviewTab = DoEnablePreviewTab);
+            threading.ReentrancyGuard.Queue("reset preview tab", () => doEnablePreviewTab = DoEnablePreviewTab);
         }
 
         // Make sure we restore the document state, or VS will try to open subsequent documents in the preview
