@@ -3,12 +3,12 @@
   <metadata>
     <id>PreviewTab</id>
     <title>Preview Tab Behaviour</title>
-    <version>1.1.4-EAP-20140303</version>
+    <version>1.1.4</version>
     <authors>Matt Ellis</authors>
     <owners>Matt Ellis</owners>
     <description>Open files in Visual Studio's preview tab</description>
-    <releaseNotes>Support for ReSharper 8.2 EAP
-&#8226; Fixes multi-file template support for ReSharper 8.1 and 8.2 EAP</releaseNotes>
+    <releaseNotes>&#8226; Support for ReSharper 8.2
+&#8226; Fixes multi-file template support for ReSharper 8.1 and 8.2</releaseNotes>
     <projectUrl>https://github.com/citizenmatt/resharper-preview-tab</projectUrl>
     <licenseUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/license.txt</licenseUrl>
     <iconUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/icon.png</iconUrl>

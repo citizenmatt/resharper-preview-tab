@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using JetBrains.Application;
-using JetBrains.Application.Components;
 using JetBrains.Application.Extensions;
-using JetBrains.DataFlow;
 using JetBrains.IDE;
 using JetBrains.ProjectModel;
 using JetBrains.Util;
-using Lifetimes = JetBrains.DataFlow.Lifetimes;
 
 namespace CitizenMatt.ReSharper.PreviewTab
 {
