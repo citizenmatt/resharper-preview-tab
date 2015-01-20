@@ -15,29 +15,24 @@
  */
 
 using JetBrains.IDE;
+using JetBrains.Platform.VisualStudio.SinceVs11.IDE;
 using JetBrains.ProjectModel;
 using JetBrains.TextControl;
 using JetBrains.Util;
-using JetBrains.VsIntegration.SinceVs11.IDE;
 
 namespace CitizenMatt.ReSharper.PreviewTab
 {
-  public partial class PreviewTabEditorManager : EditorManagerSinceVs11
+  public partial class PreviewTabEditorManager : EditorManagerSinceVs11, IEditorManager
   {
-    public override ITextControl OpenProjectFile(IProjectFile projectFile, bool activate, FileView fileViewPrimary,
-                                                 TabOptions tabOptions = TabOptions.Default)
+    ITextControl IEditorManager.OpenProjectFile(IProjectFile projectFile, bool activate, FileView fileViewPrimary,
+        TabOptions tabOptions)
     {
       return OverrideOpenProjectFile(projectFile, activate, fileViewPrimary, tabOptions);
     }
 
-    public override ITextControl OpenFile(FileSystemPath fileName, bool activate, TabOptions tabOptions)
+    ITextControl IEditorManager.OpenFile(FileSystemPath fileName, bool activate, TabOptions tabOptions)
     {
       return OverrideOpenFile(fileName, activate, tabOptions);
     }
-
   }
-}
-
-namespace JetBrains.VsIntegration.ProjectDocuments.Projects.Builder
-{
 }

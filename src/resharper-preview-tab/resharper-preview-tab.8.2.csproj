@@ -81,8 +81,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PreviewTabEditorManager.cs" />
+    <Compile Include="PreviewTabEditorManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PreviewTabEditorManager80.cs" />
+    <Compile Include="Properties\AssemblyInfo.8.2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

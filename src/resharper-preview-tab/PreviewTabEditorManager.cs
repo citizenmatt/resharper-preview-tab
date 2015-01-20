@@ -25,6 +25,7 @@ using JetBrains.Threading;
 using JetBrains.UI.WindowManagement;
 using JetBrains.Util;
 using JetBrains.VsIntegration.DocumentModel;
+using JetBrains.VsIntegration.ProjectDocuments.Projects.Builder;
 using JetBrains.VsIntegration.ProjectModel;
 using Microsoft.VisualStudio.Shell.Interop;
 
@@ -72,15 +73,15 @@ namespace CitizenMatt.ReSharper.PreviewTab
             doEnablePreviewTab();
         }
 
-        public override ITextControl OpenProjectFile(IProjectFile projectFile, bool activate, FileView fileViewPrimary,
+        private ITextControl OverrideOpenProjectFile(IProjectFile projectFile, bool activate, FileView fileViewPrimary,
             TabOptions tabOptions = TabOptions.Default)
         {
-            var textControl = base.OpenProjectFile(projectFile, activate, fileViewPrimary, tabOptions);
-            RestoreNewDocumentStateContext();
-            return textControl;
+              var textControl = base.OpenProjectFile(projectFile, activate, fileViewPrimary, tabOptions);
+              RestoreNewDocumentStateContext();
+              return textControl;
         }
 
-        public override ITextControl OpenFile(FileSystemPath fileName, bool activate, TabOptions tabOptions)
+        private ITextControl OverrideOpenFile(FileSystemPath fileName, bool activate, TabOptions tabOptions)
         {
             var textControl = base.OpenFile(fileName, activate, tabOptions);
             RestoreNewDocumentStateContext();
