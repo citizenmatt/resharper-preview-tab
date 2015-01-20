@@ -34,7 +34,6 @@ namespace CitizenMatt.ReSharper.PreviewTab
     {
       return OverrideOpenFile(fileName, activate, tabOptions);
     }
-
   }
 }
 
