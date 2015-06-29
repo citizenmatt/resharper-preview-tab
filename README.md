@@ -1,6 +1,6 @@
 # resharper-preview-tab
 
-An extension to make ReSharper open files in Visual Studio's preview tab when navigating. For ReSharper 8.x and 9.0.
+An extension to make ReSharper 9.1 open files in Visual Studio's preview tab when navigating.
 
 ## What does it do? ##
 
@@ -14,21 +14,16 @@ Since this reduces the number of open windows in your Visual Studio session, it 
 
 ## How do I get it? ##
 
-For ReSharper 9.0 and 8.x, simply install from the Extension Manager, available from the ReSharper menu.
+Simply install from the Extension Manager, available from the ReSharper menu.
 
 ### Building ###
 
-The source contains projects for ReSharper 9.0 and 8.2. The SDKs are referenced as NuGet packages, and will automatically restore on first build.
+The source contains projects for ReSharper 9.1. The SDKs are referenced as NuGet packages, and will automatically restore on first build.
 
 ### Version ###
 
-The current version is 1.1.4. It works with Visual Studio 2012 and 2013, and ReSharper 9.0 and 8.x. See the [ReleaseNotes wiki page](https://github.com/citizenmatt/resharper-preview-tab/wiki/Release-Notes) for more details.
+The current version is 1.2.0. It works with Visual Studio 2012, 2013 and 2015, and ReSharper 9.1. Previous versions are available for ReSharper 9.0 and 8.x in the Extension Manager.
 
 ### Contributing ###
 
 Feel free to [raise issues on GitHub](https://github.com/citizenmatt/resharper-preview-tab/issues), or [fork the project](http://help.github.com/fork-a-repo/) and [send a pull request](http://help.github.com/send-pull-requests/).
-
-### Roadmap ###
-
-Please see the [Issues tab on the GitHub page](https://github.com/citizenmatt/resharper-preview-tab/issues).
-
