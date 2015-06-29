@@ -177,7 +177,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.resharper-preview-tab.9.0.config" />
+    <None Include="packages.resharper-preview-tab.config" />
   </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
