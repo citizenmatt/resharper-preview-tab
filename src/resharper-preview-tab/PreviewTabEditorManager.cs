@@ -19,6 +19,7 @@ using JetBrains.DataFlow;
 using JetBrains.DocumentManagers;
 using JetBrains.DocumentModel.Transactions;
 using JetBrains.IDE;
+using JetBrains.Platform.VisualStudio.SinceVs11.IDE;
 using JetBrains.ProjectModel;
 using JetBrains.TextControl;
 using JetBrains.Threading;
@@ -26,13 +27,12 @@ using JetBrains.UI.WindowManagement;
 using JetBrains.Util;
 using JetBrains.VsIntegration.DocumentModel;
 using JetBrains.VsIntegration.ProjectDocuments.Projects.Builder;
-using JetBrains.VsIntegration.ProjectModel;
 using Microsoft.VisualStudio.Shell.Interop;
 
 namespace CitizenMatt.ReSharper.PreviewTab
 {
   [SolutionComponent]
-  public partial class PreviewTabEditorManager
+  public class PreviewTabEditorManager : EditorManagerSinceVs11, IEditorManager
   {
     // Defined in Microsoft.VisualStudio.Shell.11.0.dll, but this saves us having to reference it
     // (and reference Microsoft.VisualStudio.Shell.12.0.dll for VS2013)
@@ -54,6 +54,7 @@ namespace CitizenMatt.ReSharper.PreviewTab
       : base(lifetime, projectModelSynchronizer, vsUiShellOpenDocument, vsDocumentManagerSynchronization,
         textControlManager, frameFocusHelper, documentManager)
     {
+      // ReSharper disable once SuspiciousTypeConversion.Global
       vsUiShellOpenDocument3 = vsUiShellOpenDocument as IVsUIShellOpenDocument3;
       this.documentTransactionManager = documentTransactionManager;
       this.threading = threading;
@@ -74,15 +75,15 @@ namespace CitizenMatt.ReSharper.PreviewTab
       doEnablePreviewTab();
     }
 
-    private ITextControl OverrideOpenProjectFile(IProjectFile projectFile, bool activate, FileView fileViewPrimary,
-                                                 TabOptions tabOptions = TabOptions.Default)
+    ITextControl IEditorManager.OpenProjectFile(IProjectFile projectFile, bool activate, FileView fileViewPrimary,
+    TabOptions tabOptions)
     {
       var textControl = base.OpenProjectFile(projectFile, activate, fileViewPrimary, tabOptions);
       RestoreNewDocumentStateContext();
       return textControl;
     }
 
-    private ITextControl OverrideOpenFile(FileSystemPath fileName, bool activate, TabOptions tabOptions)
+    ITextControl IEditorManager.OpenFile(FileSystemPath fileName, bool activate, TabOptions tabOptions)
     {
       var textControl = base.OpenFile(fileName, activate, tabOptions);
       RestoreNewDocumentStateContext();
