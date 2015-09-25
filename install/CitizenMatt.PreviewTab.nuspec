@@ -3,23 +3,23 @@
   <metadata>
     <id>CitizenMatt.PreviewTab</id>
     <title>Preview Tab Behaviour for ReSharper 9</title>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <authors>Matt Ellis</authors>
     <owners>Matt Ellis</owners>
     <description>Open files in Visual Studio's preview tab</description>
-    <releaseNotes>&#8226; Support for ReSharper 9.1</releaseNotes>
+    <releaseNotes>&#8226; Support for ReSharper 9.2</releaseNotes>
     <projectUrl>https://github.com/citizenmatt/resharper-preview-tab</projectUrl>
     <licenseUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/license.txt</licenseUrl>
     <iconUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/icon.png</iconUrl>
     <copyright>Copyright 2014-2015 Matt Ellis</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-      <dependency id="Wave" version="[2.0]" />
+      <dependency id="Wave" version="[3.0]" />
     </dependencies>
     <tags>resharper preview previewtab editor visualstudio</tags>
   </metadata>
   <files>
-    <file src="..\src\resharper-preview-tab\bin\Release\CitizenMatt.ReSharper.PreviewTab.9.0.dll"
+    <file src="..\src\resharper-preview-tab\bin\Release\CitizenMatt.ReSharper.PreviewTab.9.2.dll"
           target="DotFiles" />
   </files>
 </package>
