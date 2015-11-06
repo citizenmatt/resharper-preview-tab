@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>CitizenMatt.PreviewTab</id>
-    <title>Preview Tab Behaviour for ReSharper 9</title>
-    <version>1.4.0</version>
+    <title>Preview Tab Behaviour for ReSharper 10</title>
+    <version>1.4.1</version>
     <authors>Matt Ellis</authors>
     <owners>Matt Ellis</owners>
     <description>Open files in Visual Studio's preview tab</description>
