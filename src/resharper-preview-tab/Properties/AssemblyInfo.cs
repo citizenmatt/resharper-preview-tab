@@ -1,4 +1,5 @@
 /*
+ * Copyright 2012 - 2016 Matt Ellis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,8 +24,8 @@ using System.Reflection;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Matt Ellis")]
 [assembly: AssemblyProduct("resharper-preview-tab")]
-[assembly: AssemblyCopyright("Copyright © Matt Ellis, 2014")]
+[assembly: AssemblyCopyright("Copyright © Matt Ellis, 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: AssemblyVersion("1.4.*")]
+[assembly: AssemblyVersion("1.5.0.0")]

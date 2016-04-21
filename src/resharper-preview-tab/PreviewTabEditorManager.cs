@@ -1,5 +1,5 @@
 ﻿/*
- * Copyright 2012 - 2015 Matt Ellis
+ * Copyright 2012 - 2016 Matt Ellis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 
 using System;
+using System.Threading;
 using JetBrains.DataFlow;
 using JetBrains.DocumentManagers;
 using JetBrains.DocumentModel.Transactions;
@@ -24,7 +25,6 @@ using JetBrains.ProjectModel;
 using JetBrains.TextControl;
 using JetBrains.Threading;
 using JetBrains.UI.WindowManagement;
-using JetBrains.Util;
 using JetBrains.VsIntegration.DocumentModel;
 using JetBrains.VsIntegration.ProjectDocuments.Projects.Builder;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -32,17 +32,11 @@ using Microsoft.VisualStudio.Shell.Interop;
 namespace CitizenMatt.ReSharper.PreviewTab
 {
   [SolutionComponent]
-  public class PreviewTabEditorManager : EditorManagerSinceVs11, IEditorManager
+  public class PreviewTabEditorManager : EditorManagerSinceVs11
   {
-    // Defined in Microsoft.VisualStudio.Shell.11.0.dll, but this saves us having to reference it
-    // (and reference Microsoft.VisualStudio.Shell.12.0.dll for VS2013)
-    private static readonly Guid NavigationReason = new Guid("8d57e022-9e44-4efd-8e4e-230284f86376");
-
-    private readonly IVsUIShellOpenDocument3 vsUiShellOpenDocument3;
     private readonly DocumentTransactionManager documentTransactionManager;
     private readonly IThreading threading;
-    private IVsNewDocumentStateContext newDocumentStateContext;
-    private Action doEnablePreviewTab;
+    private long previewTabRequests;
 
     public PreviewTabEditorManager(Lifetime lifetime, ProjectModelSynchronizer projectModelSynchronizer,
                                    IVsUIShellOpenDocument vsUiShellOpenDocument,
@@ -52,14 +46,12 @@ namespace CitizenMatt.ReSharper.PreviewTab
                                    DocumentTransactionManager documentTransactionManager,
                                    IThreading threading)
       : base(lifetime, projectModelSynchronizer, vsUiShellOpenDocument, vsDocumentManagerSynchronization,
-        textControlManager, frameFocusHelper, documentManager)
+             textControlManager, frameFocusHelper, documentManager)
     {
-      // ReSharper disable once SuspiciousTypeConversion.Global
-      vsUiShellOpenDocument3 = vsUiShellOpenDocument as IVsUIShellOpenDocument3;
       this.documentTransactionManager = documentTransactionManager;
       this.threading = threading;
 
-      doEnablePreviewTab = DoEnablePreviewTab;
+      previewTabRequests = 0;
     }
 
     protected override bool OpenInProvisionTab(TabOptions tabOptions)
@@ -67,27 +59,19 @@ namespace CitizenMatt.ReSharper.PreviewTab
       // If we're in a transaction, something's happening (e.g. opening files for a refactoring)
       // so don't force the preview tab. If we're not in a transaction, that just means someone's
       // navigating to the file, so yes, force the preview tab
-      return !IsInDocumentTransaction;
+      return !HasCurrentPreviewTabRequest && !IsInDocumentTransaction;
     }
 
-    protected override void EnablePreviewTab()
+    protected override IDisposable WithEnabledPreviewTab(bool openInPreviewTab)
     {
-      doEnablePreviewTab();
+      var disposable = base.WithEnabledPreviewTab(openInPreviewTab);
+      AddPreviewTabRequest();
+      return disposable;
     }
 
-    ITextControl IEditorManager.OpenProjectFile(IProjectFile projectFile, bool activate, FileView fileViewPrimary,
-    TabOptions tabOptions)
+    private bool HasCurrentPreviewTabRequest
     {
-      var textControl = base.OpenProjectFile(projectFile, activate, fileViewPrimary, tabOptions);
-      RestoreNewDocumentStateContext();
-      return textControl;
-    }
-
-    ITextControl IEditorManager.OpenFile(FileSystemPath fileName, bool activate, TabOptions tabOptions)
-    {
-      var textControl = base.OpenFile(fileName, activate, tabOptions);
-      RestoreNewDocumentStateContext();
-      return textControl;
+      get { return Interlocked.Read(ref previewTabRequests) != 0; }
     }
 
     private bool IsInDocumentTransaction
@@ -95,42 +79,13 @@ namespace CitizenMatt.ReSharper.PreviewTab
       get { return documentTransactionManager.CurrentTransaction != null; }
     }
 
-    private void DoEnablePreviewTab()
+    // Prevent opening multiple documents in the preview tab at the same time. Wait until the UI has
+    // a chance to catch up. This fixes an issue with multi-file templates that want to open multiple
+    // documents at the same time - and we get an exception.
+    private void AddPreviewTabRequest()
     {
-      if (vsUiShellOpenDocument3 == null)
-        return;
-
-      SetNewDocumentState();
-      DisablePreviewTabUntilIdle();
-    }
-
-    private void SetNewDocumentState()
-    {
-      newDocumentStateContext = vsUiShellOpenDocument3.SetNewDocumentState((uint) __VSNEWDOCUMENTSTATE.NDS_Provisional,
-        NavigationReason);
-    }
-
-    // We can only open one document in the preview tab. Subsequent documents need to use normal tabs.
-    // Enqueue a re-enable command with the UI - once the UI is executing again, the preview tab has
-    // been shown, and it's fair game again. This fixes issues with multi-file templates
-    private void DisablePreviewTabUntilIdle()
-    {
-      doEnablePreviewTab = () => { };
-      threading.ReentrancyGuard.Queue("reset preview tab", () => doEnablePreviewTab = DoEnablePreviewTab);
-    }
-
-    // Make sure we restore the document state, or VS will try to open subsequent documents in the preview
-    // tab (ideally, this should happen in VsEditorManager, which calls SetNewDocumentState). Incidentally,
-    // I don't know why we don't need to reset this when using to open files one at a time, but we do need
-    // to use it when we try to open multiple files at once (e.g. multi-file templates). Perhaps the GC
-    // kicks in and frees the early object for us? Or there's a timeout?
-    private void RestoreNewDocumentStateContext()
-    {
-      if (newDocumentStateContext != null)
-      {
-        newDocumentStateContext.Restore();
-        newDocumentStateContext = null;
-      }
+      Interlocked.Increment(ref previewTabRequests);
+      threading.ReentrancyGuard.Queue("reset preview tab", () => Interlocked.Decrement(ref previewTabRequests));
     }
   }
 }
