@@ -28,4 +28,4 @@ using System.Reflection;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: AssemblyVersion("1.5.0.0")]
+[assembly: AssemblyVersion("1.6.0.0")]

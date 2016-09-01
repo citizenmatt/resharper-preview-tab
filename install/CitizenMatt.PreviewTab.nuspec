@@ -2,19 +2,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>CitizenMatt.PreviewTab</id>
-    <title>Preview Tab Behaviour for ReSharper 10</title>
-    <version>1.5.0</version>
+    <title>Always Open In Preview Tab</title>
+    <version>1.6.0</version>
     <authors>Matt Ellis</authors>
     <owners>Matt Ellis</owners>
     <description>Open files in Visual Studio's preview tab</description>
-    <releaseNotes>&#8226; Support for ReSharper 2016.1</releaseNotes>
+    <releaseNotes>&#8226; Support for ReSharper 2016.2</releaseNotes>
     <projectUrl>https://github.com/citizenmatt/resharper-preview-tab</projectUrl>
     <licenseUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/license.txt</licenseUrl>
     <iconUrl>https://raw.github.com/citizenmatt/resharper-preview-tab/master/icon.png</iconUrl>
-    <copyright>Copyright 2014-2015 Matt Ellis</copyright>
+    <copyright>Copyright 2014-2016 Matt Ellis</copyright>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-      <dependency id="Wave" version="[5.0]" />
+      <dependency id="Wave" version="[6.0]" />
     </dependencies>
     <tags>resharper preview previewtab editor visualstudio</tags>
   </metadata>
