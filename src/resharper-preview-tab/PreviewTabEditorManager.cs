@@ -69,15 +69,8 @@ namespace CitizenMatt.ReSharper.PreviewTab
       return disposable;
     }
 
-    private bool HasCurrentPreviewTabRequest
-    {
-      get { return Interlocked.Read(ref previewTabRequests) != 0; }
-    }
-
-    private bool IsInDocumentTransaction
-    {
-      get { return documentTransactionManager.CurrentTransaction != null; }
-    }
+    private bool HasCurrentPreviewTabRequest => Interlocked.Read(ref previewTabRequests) != 0;
+    private bool IsInDocumentTransaction => documentTransactionManager.CurrentTransaction != null;
 
     // Prevent opening multiple documents in the preview tab at the same time. Wait until the UI has
     // a chance to catch up. This fixes an issue with multi-file templates that want to open multiple
