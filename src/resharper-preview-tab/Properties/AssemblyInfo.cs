@@ -24,8 +24,8 @@ using System.Reflection;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Matt Ellis")]
 [assembly: AssemblyProduct("resharper-preview-tab")]
-[assembly: AssemblyCopyright("Copyright © Matt Ellis, 2016")]
+[assembly: AssemblyCopyright("Copyright © Matt Ellis, 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: AssemblyVersion("1.6.0.0")]
+[assembly: AssemblyVersion("1.6.1.0")]

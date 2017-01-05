@@ -20,10 +20,6 @@ Simply install from the Extension Manager, available from the ReSharper menu.
 
 Simply open the solution, restore the packages from NuGet, and Bob's your uncle.
 
-### Version ###
-
-The current version is 1.4.0. It works with Visual Studio 2012, 2013 and 2015, and ReSharper 10. Previous versions are available for ReSharper 9.x and 8.x in the Extension Manager.
-
 ### Contributing ###
 
 Feel free to [raise issues on GitHub](https://github.com/citizenmatt/resharper-preview-tab/issues), or [fork the project](http://help.github.com/fork-a-repo/) and [send a pull request](http://help.github.com/send-pull-requests/).
