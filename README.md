@@ -2,6 +2,14 @@
 
 An extension to make ReSharper that open files in Visual Studio's preview tab when navigating.
 
+----
+
+# DEPRECATED AS OF RESHARPER 2017.1
+
+This plugin is no longer required, since ReSharper 2017.1. Functionality is included in the product, by checking the "Open new files in preview tab from everywhere" option in the _Search & Navigation_ options page.
+
+----
+
 ## What does it do? ##
 
 Visual Studio 2012 introduced the preview tab - a reusable editor tab. Single-clicking a file in solution explorer opens the file in the preview tab, replacing what was already there. Editing the file automatically and seamlessly promotes it to a normal editor tab, keeping the file open.
